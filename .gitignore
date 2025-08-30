@@ -1,0 +1,5 @@
+artifacts/
+venv/
+logs/
+Machine_Efficiency_Prediction.egg-info/
+.vscode/

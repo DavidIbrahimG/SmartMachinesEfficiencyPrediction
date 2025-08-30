@@ -1,0 +1,102 @@
+/* Reset & Layout Improvements */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* prevents input overflow hitting the right edge */
+}
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e3f2fd;
+    text-align: center;
+    padding: 24px clamp(16px, 4vw, 48px); /* more breathing room on sides */
+    margin: 0;
+    line-height: 1.4;
+}
+
+h1 {
+    color: #0d47a1;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Form Styling */
+form {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    display: grid;                /* consistent vertical rhythm */
+    gap: 14px;                    /* space between form elements */
+    text-align: left;
+    width: clamp(280px, 90vw, 420px); /* responsive but never too wide */
+    margin-inline: auto;          /* center horizontally */
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+    margin: 0; /* spacing now handled by grid gap */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    /* thanks to border-box, padding won’t push beyond the form’s right edge */
+}
+
+input[type="text"]:focus {
+    border-color: #0d47a1;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(13, 71, 161, 0.12);
+}
+
+button {
+    background: linear-gradient(135deg, #0d47a1, #42a5f5);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.08s ease, filter 0.3s ease-in-out, background 0.3s ease-in-out;
+    width: 100%;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #42a5f5, #0d47a1);
+    filter: brightness(1.03);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Prediction Styling */
+h2 {
+    color: #2e7d32;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 16px; /* extra side padding on small screens */
+    }
+    form {
+        padding: 22px;
+        gap: 12px;
+    }
+    input[type="text"], button {
+        font-size: 15px;
+    }
+}
