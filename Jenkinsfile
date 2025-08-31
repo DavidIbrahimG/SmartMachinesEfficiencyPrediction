@@ -58,7 +58,7 @@ pipeline {
       }
     }
 
-    stage('Apply Kubernetes & Sync App with ArgoCD') {
+    stage('Apply Kubernetes & Sync App with ArgoCD setup') {
       steps {
         withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
           sh '''
