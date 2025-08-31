@@ -62,7 +62,7 @@ pipeline {
       steps {
         withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
           sh '''
-            kubectl version --short
+            kubectl version --client
             argocd login 34.68.36.23:31619 \
               --username admin \
               --password $(kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d) \
