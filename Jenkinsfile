@@ -60,7 +60,7 @@ pipeline {
 
     stage('Apply Kubernetes & Sync App with ArgoCD') {
       steps {
-        kubeconfig(credentialsId: 'kubeconfig') {
+        withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
           sh '''
             kubectl version --short
             argocd login 34.68.36.23:31619 \
@@ -78,7 +78,7 @@ pipeline {
   post {
     always {
       echo 'Pipeline finished.'
-      // cleanWs()  // uncomment if you want workspace cleanup
+      // cleanWs()
     }
   }
 } // end pipeline
