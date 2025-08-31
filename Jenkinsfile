@@ -60,7 +60,7 @@ pipeline {
 
     stage('Apply Kubernetes & Sync App with ArgoCD') {
       steps {
-        withKubeConfig([credentialsId: 'kubeconfig']) {
+        kubeconfig(credentialsId: 'kubeconfig') {
           sh '''
             kubectl version --short
             argocd login 34.68.36.23:31619 \
